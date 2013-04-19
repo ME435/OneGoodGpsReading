@@ -30,6 +30,7 @@ public class MainActivity extends Activity implements FieldGpsListener, FieldOri
 	private State mState = State.READY_FOR_MISSION;
 	private long mStateStartTime = 0;
 	
+	// Various constants and member variable names.
 	private static final String TAG = "OneGoodGps";
 	private static final double NO_HEADING_KNOWN = 360.0;
 	private TextView mCurrentStateTextView, mStateTimeTextView, mGpsInfoTextView, mSensorOrientationTextView;
@@ -37,7 +38,6 @@ public class MainActivity extends Activity implements FieldGpsListener, FieldOri
 	private double mCurrentGpsX, mCurrentGpsY, mCurrentGpsHeading;
 	private double mCurrentSensorHeading;
 	private Handler mCommandHandler = new Handler();
-
 	protected Timer mTimer;
 	public static final int LOOP_INTERVAL_MS = 100;
 	
@@ -88,6 +88,10 @@ public class MainActivity extends Activity implements FieldGpsListener, FieldOri
 		mCurrentSensorHeading = fieldHeading;
 		mSensorOrientationTextView.setText(
 		    getString(R.string.degrees_format, fieldHeading));
+		// Note:
+		//  Azimuth is orientationValues[0]
+		//    Pitch is orientationValues[1]
+		//     Roll is orientationValues[2]
 	}
 
 	public void handleRedTeamGo(View view) {
