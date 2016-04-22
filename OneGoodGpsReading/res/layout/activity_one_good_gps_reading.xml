@@ -4,51 +4,56 @@
     android:layout_height="match_parent"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:background="#444"
-    android:padding="25dp"
+    android:padding="18dp"
     tools:context=".OneGoodGpsReadingActivity">
 
-    <Button
-        android:id="@+id/red_go_button"
-        style="@style/ColorButton.AbsoluteSizeButton"
-        android:layout_alignParentLeft="true"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:background="@drawable/red_button"
-        android:onClick="handleRedTeamGo"
-        android:text="Red Team Go!" />
+        android:id="@+id/script_buttons">
+        <Button
+            android:id="@+id/red_go_button"
+            style="@style/ColorButton.HorzLinearLayout"
+            android:background="@drawable/red_button"
+            android:onClick="handleRedTeamGo"
+            android:text="Red Team Go!" />
 
-    <Button
-        android:id="@+id/blue_go_button"
-        style="@style/ColorButton.AbsoluteSizeButton"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/blue_button"
-        android:onClick="handleBlueTeamGo"
-        android:text="Blue Team Go!" />
+        <Button
+            android:id="@+id/blue_go_button"
+            style="@style/ColorButton.HorzLinearLayout"
+            android:background="@drawable/blue_button"
+            android:onClick="handleBlueTeamGo"
+            android:text="Blue Team Go!" />
+
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/mission_complete_button"
         style="@style/ColorButton"
         android:layout_width="match_parent"
-        android:layout_height="100sp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@drawable/green_button"
         android:onClick="handleMissionComplete"
         android:text="Mission Complete!"
-        android:textSize="36sp" />
+        android:textSize="32sp" />
 
     <TextView
         android:id="@+id/state_label"
         style="@style/DisplayText"
-        android:layout_below="@id/red_go_button"
+        android:layout_below="@id/script_buttons"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:text="Current state:" />
+        android:layout_marginTop="16dp"
+        android:text="State:" />
 
     <TextView
         android:id="@+id/current_state_textview"
         style="@style/DisplayText"
         android:layout_alignBaseline="@id/state_label"
-        android:layout_toRightOf="@id/red_go_button"
+        android:layout_alignLeft="@+id/orientation_textview"
         android:text="---" />
 
     <TextView
@@ -63,7 +68,7 @@
         android:id="@+id/state_time_textview"
         style="@style/DisplayText"
         android:layout_alignBaseline="@id/state_time_label"
-        android:layout_toRightOf="@id/red_go_button"
+        android:layout_alignLeft="@+id/orientation_textview"
         android:text="---" />
 
     <TextView
@@ -78,7 +83,7 @@
         android:id="@+id/gps_info_textview"
         style="@style/DisplayText"
         android:layout_alignBaseline="@id/gps_label"
-        android:layout_toRightOf="@id/red_go_button"
+        android:layout_alignLeft="@+id/orientation_textview"
         android:text="---" />
 
     <TextView
@@ -93,7 +98,8 @@
         android:id="@+id/orientation_textview"
         style="@style/DisplayText"
         android:layout_alignBaseline="@id/orientation_label"
-        android:layout_toRightOf="@id/red_go_button"
+        android:layout_toRightOf="@id/orientation_label"
+        android:layout_marginLeft="8dp"
         android:text="---" />
 
     <Button
